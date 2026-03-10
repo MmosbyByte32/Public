@@ -5,6 +5,6 @@
   directory = "netlify/functions"
 
 [[redirects]]
-  from = "/api/chat"
-  to = "/.netlify/functions/chat"
+  from = "/api/chat-fn"
+  to = "/.netlify/functions/chat-fn"
   status = 200

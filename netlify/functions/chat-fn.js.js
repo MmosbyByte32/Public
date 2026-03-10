@@ -1,5 +1,4 @@
 exports.handler = async function (event, context) {
-  // Handle CORS preflight
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -15,6 +14,7 @@ exports.handler = async function (event, context) {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: { 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({ error: 'Method not allowed' })
     };
   }

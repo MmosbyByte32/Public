@@ -658,7 +658,7 @@ async function callAI(userText) {
   S.messages.push({ role: 'user', content: parts.length === 1 ? parts[0].text : parts });
 
   try {
-    const res = await fetch('/api/chat', {
+    const res = await fetch('/api/chat-fn', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -871,7 +871,7 @@ async function checkAnswer(answer, question, hintVal, isSecondAttempt) {
     const context = isSecondAttempt
       ? `This is the student's SECOND and final attempt. If wrong, still give warm feedback and briefly show the correct answer.`
       : `This is the student's first attempt. If wrong, give warm encouraging feedback and a gentle nudge toward the right answer — do NOT reveal the full answer yet.`;
-    const res = await fetch('/api/chat', {
+    const res = await fetch('/api/chat-fn', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514', max_tokens: 280,
